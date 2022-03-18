@@ -261,6 +261,8 @@ networkPolicy:
   enabled: false
 #   ingress:
 #     from: []
+#   egress:
+#     to: []
 
 luaScripts: {}
 

@@ -19,4 +19,12 @@ spec:
         - protocol: "TCP"
           port: {{ $.Values.service.port }}
     {{- end }}
+  egress:
+    {{- with .Values.networkPolicy.egress }}
+    - to:
+        {{- with .to }}{{- . | toYaml | nindent 8 }}{{- else }} []{{- end }}
+      ports:
+        - protocol: "TCP"
+          port: {{ .port }}
+    {{- end }}
 {{- end }}
